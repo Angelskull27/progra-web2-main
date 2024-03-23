@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Store Products</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <button onclick="getProducts()">Get All Products</button>
+    
+    <form id="search-form">
+        <input type="text" id="search-input" placeholder="Search by Title">
+        <button type="button" onclick="searchProduct(document.getElementById('search-input').value)">Search</button>
+    </form>
+
+    <form id="update-form">
+        <input type="text" id="update-id" placeholder="Product ID">
+        <input type="text" id="update-title" placeholder="New Title">
+        <input type="number" id="update-price" placeholder="New Price">
+        <button type="button" onclick="updateProduct(document.getElementById('update-id').value, { title: document.getElementById('update-title').value, price: document.getElementById('update-price').value })">Update</button>
+    </form>
+
+    <form id="delete-form">
+        <input type="text" id="delete-id" placeholder="Product ID">
+        <button type="button" onclick="deleteProduct(document.getElementById('delete-id').value)">Delete</button>
+    </form>
+
+    <div class="product-list" id="product-list"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
