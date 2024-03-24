@@ -7,13 +7,10 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <button onclick="Addproducts()">agregar</button>
     <button onclick="getProducts()">Get All Products</button>
     
-    <form id="search-form">
-        <input type="text" id="search-input" placeholder="Search by Title">
-        <button type="button" onclick="searchProduct(document.getElementById('search-input').value)">Search</button>
-    </form>
+    
 
     <form id="update-form">
         <input type="text" id="update-id" placeholder="Product ID">
@@ -28,6 +25,7 @@
     </form>
 
     <div class="product-list" id="product-list"></div>
+   
 
     <script src="script.js"></script>
 </body>
