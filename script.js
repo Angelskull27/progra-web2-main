@@ -56,14 +56,19 @@ function displayProduct(product) {
     `;
     productList.appendChild(productDiv);
 }
-function Addproducts(){
+const addProductForm = document.getElementById('add-product-form');
+
+addProductForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const productName = document.getElementById('product-name').value;
+    const productPrice = document.getElementById('product-price').value;
+
     const data = {
-        title: "DANVasdaCotton asdjasjkdasdrt",
-        price: 125844.99,
-        description: "asdasdasd.",
-        image: "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
-        category: "hla"
+        title: productName,
+        price: productPrice
     };
+
     fetch('https://fakestoreapi.com/products', {
         method: "POST",
         headers: {
@@ -76,6 +81,7 @@ function Addproducts(){
         console.log(json); // Muestra la respuesta de la API en la consola
         console.log("Producto creado con éxito"); // Muestra un mensaje adicional en la consola
     });
-}
+});
+
 // Obtener los productos al cargar la página
 getProducts();

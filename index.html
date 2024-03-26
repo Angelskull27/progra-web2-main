@@ -7,8 +7,16 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button onclick="Addproducts()">agregar</button>
     <button onclick="getProducts()">Get All Products</button>
+    <form id="add-product-form">
+        <label for="product-name"></label>
+        <input type="text" placeholder="Title" id="product-name" name="product-name" required>
+        <label for="product-price"></label>
+        <input type="number" placeholder="Price" id="product-price" name="product-price" required>
+        <button type="submit">Add</button>
+    </form>
+    
+   
     
     
 
