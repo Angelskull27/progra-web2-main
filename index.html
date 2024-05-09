@@ -1,40 +1,52 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fake Store Products</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="referrer" content="no-referrer">
+    <script src="./script.js"></script>
+    <link rel="stylesheet" href="./styles.css">
+
+    <title>Document</title>
 </head>
 <body>
-    <button onclick="getProducts()">Get All Products</button>
-    <form id="add-product-form">
-        <label for="product-name"></label>
-        <input type="text" placeholder="Title" id="product-name" name="product-name" required>
-        <label for="product-price"></label>
-        <input type="number" placeholder="Price" id="product-price" name="product-price" required>
-        <button type="submit">Add</button>
-    </form>
+    <div class="form-container">
+        <h1>Product Form</h1>
+        <form id="product-form">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" required>
+          </div>
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" id="price" name="price" required>
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" rows="3" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="category-id">Category ID</label>
+            <input type="number" id="category-id" name="categoryId" required>
+          </div>
+          <div class="form-group">
+            <label for="category-name">Category Name</label>
+            <input type="text" id="category-name" name="categoryName" required>
+          </div>
+          <div class="form-group">
+            <label for="category-image">Category Image</label>
+            <input type="text" id="category-image" name="categoryImage" required>
+          </div>
+          <div class="form-group">
+            <label for="images">Images</label>
+            <textarea id="images" name="images" rows="3" required></textarea>
+            <p>Enter image URLs separated by commas (e.g., "https://example.com/image1.jpg, https://example.com/image2.jpg").</p>
+          </div>
+          <button type="submit">Save Product</button>
+        </form>
+      </div>
+    <h1>Lista de productos</h1>
+    <div id="product-list"></div>
     
-   
+  
     
-    
-
-    <form id="update-form">
-        <input type="text" id="update-id" placeholder="Product ID">
-        <input type="text" id="update-title" placeholder="New Title">
-        <input type="number" id="update-price" placeholder="New Price">
-        <button type="button" onclick="updateProduct(document.getElementById('update-id').value, { title: document.getElementById('update-title').value, price: document.getElementById('update-price').value })">Update</button>
-    </form>
-
-    <form id="delete-form">
-        <input type="text" id="delete-id" placeholder="Product ID">
-        <button type="button" onclick="deleteProduct(document.getElementById('delete-id').value)">Delete</button>
-    </form>
-
-    <div class="product-list" id="product-list"></div>
-   
-
-    <script src="script.js"></script>
 </body>
 </html>
+
