@@ -102,3 +102,40 @@ button {
   cursor: pointer;
   font-size: 16px;
 }
+/* Estilos para los botones */
+.product button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo específico para el botón de editar */
+.product button:nth-child(1) {
+  background-color: #28a745;
+}
+
+.product button:nth-child(1):hover {
+  background-color: #1e7e34;
+}
+
+/* Estilo específico para el botón de eliminar */
+.product button:nth-child(2) {
+  background-color: #dc3545;
+}
+
+.product button:nth-child(2):hover {
+  background-color: #c82333;
+}
+
+
