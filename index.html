@@ -7,46 +7,27 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="form-container">
-        <h1>Product Form</h1>
-        <form id="product-form">
-          <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" id="title" name="title" required>
-          </div>
-          <div class="form-group">
-            <label for="price">Price</label>
-            <input type="number" id="price" name="price" required>
-          </div>
-          <div class="form-group">
-            <label for="description">Description</label>
-            <textarea id="description" name="description" rows="3" required></textarea>
-          </div>
-          <div class="form-group">
-            <label for="category-id">Category ID</label>
-            <input type="number" id="category-id" name="categoryId" required>
-          </div>
-          <div class="form-group">
-            <label for="category-name">Category Name</label>
-            <input type="text" id="category-name" name="categoryName" required>
-          </div>
-          <div class="form-group">
-            <label for="category-image">Category Image</label>
-            <input type="text" id="category-image" name="categoryImage" required>
-          </div>
-          <div class="form-group">
-            <label for="images">Images</label>
-            <textarea id="images" name="images" rows="3" required></textarea>
-            <p>Enter image URLs separated by commas (e.g., "https://example.com/image1.jpg, https://example.com/image2.jpg").</p>
-          </div>
-          <button type="submit">Save Product</button>
-        </form>
-      </div>
-    <h1>Lista de productos</h1>
+  <h1>Lista de productos</h1>
+  <form id="product-form">
+    <label for="title">Título:</label><br>
+    <input type="text" id="title" name="title"><br>
+    <label for="price">Precio:</label><br>
+    <input type="text" id="price" name="price"><br>
+    <label for="description">Descripción:</label><br>
+    <textarea id="description" name="description"></textarea><br>
+    <label for="category">Categoría:</label><br>
+    <input type="text" id="category" name="category"><br>
+    <label for="category">imagen:</label><br>
+    <input type="text" id="image" name="images"><br>
+    <input type="submit" value="Crear Producto">
+  </form>
+  
+   
     <div id="product-list"></div>
     
   
     
 </body>
 </html>
+
 
