@@ -81,14 +81,59 @@ item.imagesActual = item.images[0];
     const editButton = document.createElement('button');
     editButton.textContent = 'Editar';
     editButton.addEventListener('click', () => {
-      // Aquí puedes agregar la lógica para editar el producto
+      editButton.dataset.productId = product.id;
+      const productId = event.target.dataset.productId;
+      const newTitle = 'Tulio';
+      const newPrice = 300; // Precio actualizado
+      
+      // Crear un objeto con los datos actualizados
+      const updatedProduct = {
+        title: newTitle,
+        price: newPrice,
+      };
+      
+      // Enviar la solicitud de actualización a la API
+      fetch(`https://api.escuelajs.co/api/v1/products/${productId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedProduct),
+      })
+      .then(response => {
+        if (response.ok) {
+          console.log('Producto actualizado exitosamente');
+        } else {
+          console.error('Error al actualizar el producto:', response.statusText);
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
       console.log(`Editar producto: ${product.id}`);
     });
 
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Eliminar';
     deleteButton.addEventListener('click', () => {
-      // Aquí puedes agregar la lógica para eliminar el producto
+      deleteButton.dataset.productId = product.id;
+      const productId = event.target.dataset.productId;
+      fetch(`https://api.escuelajs.co/api/v1/products/${productId}`, {
+  method: 'DELETE',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+})
+.then(response => {
+  if (response.ok) {
+    console.log('Producto eliminado exitosamente');
+  } else {
+    console.error('Error al eliminar el producto:', response.statusText);
+  }
+})
+.catch((error) => {
+  console.error('Error:', error);
+});
       console.log(`Eliminar producto: ${product.id}`);
     });
 
@@ -108,10 +153,11 @@ item.imagesActual = item.images[0];
 })
 .catch(error => {
   console.error('Hubo un problema con la solicitud fetch:', error);
-});
+})
+
 
   
-  // Ejemplo de uso de las funciones de POST y PUT
+  // Ejemplo de uso de las funcion de POST
   // Crear un nuevo producto
   document.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('product-form').addEventListener('submit', function(event) {
