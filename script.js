@@ -83,34 +83,39 @@ item.imagesActual = item.images[0];
     editButton.addEventListener('click', () => {
       editButton.dataset.productId = product.id;
       const productId = event.target.dataset.productId;
-      const newTitle = 'Tulio';
-      const newPrice = 300; // Precio actualizado
-      
-      // Crear un objeto con los datos actualizados
-      const updatedProduct = {
-        title: newTitle,
-        price: newPrice,
-      };
-      
-      // Enviar la solicitud de actualización a la API
-      fetch(`https://api.escuelajs.co/api/v1/products/${productId}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(updatedProduct),
-      })
-      .then(response => {
-        if (response.ok) {
-          console.log('Producto actualizado exitosamente');
-        } else {
-          console.error('Error al actualizar el producto:', response.statusText);
-        }
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-      console.log(`Editar producto: ${product.id}`);
+      const modal = document.getElementById('modal');
+      modal.showModal();
+   // Enviar la solicitud de actualización a la API
+const form = document.getElementById('modal').querySelector('form');
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const newTitle = document.getElementById('new-title').value;
+  const newPrice = document.getElementById('new-price').value;
+  const updatedProduct = {
+    title: newTitle,
+    price: newPrice,
+  };
+  fetch(`https://api.escuelajs.co/api/v1/products/${productId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(updatedProduct),
+  })
+  .then((response) => {
+    if (response.ok) {
+      console.log('Producto actualizado exitosamente');
+    } else {
+      console.error('Error al actualizar el producto:', response.statusText);
+    }
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+  // Cierra la ventana modal
+  modal.close();
+});
+
     });
 
     const deleteButton = document.createElement('button');
