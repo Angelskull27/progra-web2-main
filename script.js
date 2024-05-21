@@ -1,4 +1,5 @@
     
+    
 // Hacer la solicitud GET a la API
 fetch('https://api.escuelajs.co/api/v1/products')
 .then(response => response.json())
@@ -91,9 +92,13 @@ form.addEventListener('submit', (event) => {
   event.preventDefault();
   const newTitle = document.getElementById('new-title').value;
   const newPrice = document.getElementById('new-price').value;
+  const newimages = document.getElementById('new-images').value;
+  const newdescription = document.getElementById('new-description').value;
   const updatedProduct = {
     title: newTitle,
     price: newPrice,
+    description: newdescription,
+    images:  [newimages]
   };
   fetch(`https://api.escuelajs.co/api/v1/products/${productId}`, {
     method: 'PUT',
@@ -200,4 +205,6 @@ form.addEventListener('submit', (event) => {
     });
   });
   
+    
+
     
