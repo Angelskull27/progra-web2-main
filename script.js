@@ -1,11 +1,11 @@
     
     
 // Hacer la solicitud GET a la API
-fetch('https://api.escuelajs.co/api/v1/products')
+fetch('http://localhost:3000/Productos')
 .then(response => response.json())
 .then(data => {
 
-data.map((item) => {
+/*data.map((item) => {
 
 
 let imageStringify = JSON.stringify(item.images); // convertimos el array de imagenes a string
@@ -42,7 +42,7 @@ item.imagesActual = item.images[0];
 
 
 });
-  // Obtener el elemento donde se mostrarán los productos
+ */ // Obtener el elemento donde se mostrarán los productos
   const productList = document.getElementById('product-list');
 
   // Recorrer los productos y crear los elementos HTML
@@ -61,22 +61,12 @@ item.imagesActual = item.images[0];
     const descriptionElement = document.createElement('p');
     descriptionElement.textContent = product.description;
 
-    const categoryElement = document.createElement('p');
-    categoryElement.textContent = `Category: ${product.category.name}`;
-
-    const categoryImageElement = document.createElement('img');
-    categoryImageElement.src = product.category.image;
-    categoryImageElement.alt = `${product.category.name} Category Image`;
-    categoryImageElement.classList.add('product-image');
-
-    const imagesElement = document.createElement('div');
-    product.images.forEach(image => {
+    const imagesElement = document.createElement('div'); 
       const imageElement = document.createElement('img');
-      imageElement.src = image;
+      imageElement.src = product.images;
       imageElement.alt = 'Product Image';
       imageElement.classList.add('product-image');
       imagesElement.appendChild(imageElement);
-    });
 
     // Crear botones para editar y eliminar
     const editButton = document.createElement('button');
@@ -100,7 +90,7 @@ form.addEventListener('submit', (event) => {
     description: newdescription,
     images:  [newimages]
   };
-  fetch(`https://api.escuelajs.co/api/v1/products/${productId}`, {
+  fetch(`http://localhost:3000/users/${productId}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -128,7 +118,7 @@ form.addEventListener('submit', (event) => {
     deleteButton.addEventListener('click', () => {
       deleteButton.dataset.productId = product.id;
       const productId = event.target.dataset.productId;
-      fetch(`https://api.escuelajs.co/api/v1/products/${productId}`, {
+      fetch(`http://localhost:3000/user/${productId}`, {
   method: 'DELETE',
   headers: {
     'Content-Type': 'application/json',
@@ -151,8 +141,6 @@ form.addEventListener('submit', (event) => {
     productDiv.appendChild(titleElement);
     productDiv.appendChild(priceElement);
     productDiv.appendChild(descriptionElement);
-    productDiv.appendChild(categoryElement);
-    productDiv.appendChild(categoryImageElement);
     productDiv.appendChild(imagesElement);
     productDiv.appendChild(editButton);
     productDiv.appendChild(deleteButton);
@@ -176,19 +164,17 @@ form.addEventListener('submit', (event) => {
       const title = document.getElementById('title').value;
       const price = document.getElementById('price').value;
       const description = document.getElementById('description').value;
-      const categoryId = document.getElementById('category').value;
-      const images = document.getElementById('image').value;
+      const images = document.getElementById('images').value;
     
       const product = {
         title: title,
         price: price,
         description: description,
-        categoryId: categoryId,
         images: [images]
       };
     
       // Enviar el producto a la API
-      fetch('https://api.escuelajs.co/api/v1/products/', {
+      fetch('http://localhost:3000/user', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
